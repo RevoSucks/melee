@@ -2,15 +2,41 @@ _SDA_BASE_ = 0x804DB6A0;
 _SDA2_BASE_ = 0x804DF9E0;
 SECTIONS
 {
-    .text0 BIND(0x80003100) : { *(.text0) }
-    .text1 BIND(0x80005940) : { *(.text1) }
-    .data0 BIND(0x80005520) : { *(.data0) }
-    .data1 BIND(0x800056C0) : { *(.data1) }
-    .data2 BIND(0x803B7240) : { *(.data2) }
-    .data3 BIND(0x803B7260) : { *(.data3) }
-    .data4 BIND(0x803B7280) : { *(.data4) }
-    .data5 BIND(0x803B9840) : { *(.data5) }
-    .data6 BIND(0x804D36A0) : { *(.data6) }
-    .data7 BIND(0x804D79E0) : { *(.data7) }
-    .bss BIND(0x804316C0) : { *(.bss) }
+    .init BIND(0x80003100) : { 
+        init.o(.text)
+    }
+
+    .game BIND(0x80005940) : {
+        game.o(.text)
+    }
+
+    .extab BIND(0x80005520) : {
+        extab.o(.text)
+    }
+
+    .extabindex BIND(0x800056C0) : {
+        extabindex.o(.text)
+    }
+
+    .data2 BIND(0x803B7240) : {
+        disasm.o(.data2)
+    }
+    .data3 BIND(0x803B7260) : {
+        disasm.o(.data3)
+    }
+    .data4 BIND(0x803B7280) : {
+        disasm.o(.data4)
+    }
+    .data5 BIND(0x803B9840) : {
+        disasm.o(.data5)
+    }
+    .data6 BIND(0x804D36A0) : {
+        disasm.o(.data6)
+    }
+    .data7 BIND(0x804D79E0) : {
+        disasm.o(.data7)
+    }
+    .bss BIND(0x804316C0) : {
+        disasm.o(.bss)
+    }
 }
